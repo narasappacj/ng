@@ -1,0 +1,10 @@
+<p>
+  two-way-binding-test works!
+</p>
+
+<input [(ngModel)]="username" (ngModelChange)="OnNgModalChange($event)">
+
+<p>Hello {{username}}!</p>
+
+<input type="text" value={{_valueOfModel}}>
+
