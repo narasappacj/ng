@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-md-4">
+      <div class="row">
+    <div class="col-md-6">
+      Select State
+    </div>
+    <div class="col-md-6">
+        <select name="drpSates" id="drpSates" (change)="OnStateChangeMandi($event.target.selectedOptions)">
+
+  <option *ngFor="let s of _statelist">{{s}}</option>
+        </select>
+    </div>
+      </div>
+    
+  </div>
+  <div class="col-md-4">
+      <div class="row">
+          <div class="col-md-6">
+            Select District
+          </div>
+          <div class="col-md-6">
+              <select name="drpdistricts" id="drpdistricts" (change)=OnDistrictChange($event.target.selectedOptions) >
+      
+        <option *ngFor="let d of _distList">{{d}}</option>
+              </select>
+          </div>
+            </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-6">
+          Select Market
+        </div>
+        <div class="col-md-6">
+            <select name="drpmarkets" id="drpmarkets" (change)=OnMarketChange($event.target.selectedOptions)>
+    
+      <option *ngFor="let m of _marketlist">{{m}}</option>
+            </select>
+        </div>
+          </div>
+</div>
+</div>
+
+<div class="row">
+  <table class="table table-bordered table-striped table-responsive">
+    <thead>
+      <tr>
+        <th>Sl No</th>
+        <th>Market</th>
+        <th>Commudity</th>
+        <th>variety</th>
+        <th>Price Date</th>
+        <th>Min Price</th>
+        <th>Max Price</th>
+        <th>Modal Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of _commuditylist; let i=index;">
+        <td>{{i+1}}</td>
+        <td>{{item.market}}</td>
+        <td>{{item.commodity}}</td>
+        <td>{{item.variety}}</td>
+        <td>{{item.arrival_date}}</td>
+        <td>{{item.min_price}}</td>
+        <td>{{item.max_price}}</td>
+        <td>{{item.modal_price}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

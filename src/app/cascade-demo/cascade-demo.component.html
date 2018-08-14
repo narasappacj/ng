@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-6">
+    <select name="statelist" id="statelist" (change)="OnStateChange($event.target.selectedOptions)">
+    <option *ngFor="let s of _statelist">{{s.key | uppercase}}</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <select name="distlist" id="distlist">
+      <option *ngFor="let d of  _distList ">{{d.key | uppercase}}</option>
+    </select>
+    </div>
+</div>

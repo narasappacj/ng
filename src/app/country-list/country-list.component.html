@@ -1,0 +1,50 @@
+<p>
+  country-list works!
+</p>
+<div class="row">
+  <div class="col-md-6">
+    
+      <select class="form-control" (change)="Page_Size_ChanegeNew($event.target.selectedOptions)">
+          <option *ngFor="let i of pagelist" value={{i.Id}}>{{i.Name}}</option>
+       </select>
+  </div>
+  <div class="col-md-6 pull-right">
+    <nav class="navbar">
+        <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Search In table">    
+    </nav>
+    
+    </div>
+    
+</div>
+<div class="row">
+    <table class="table table-bordered table-striped table-responsive">
+        <thead>
+            <th (click)="sort('slno')">Sl No</th>
+            <th (click)="sort('name')">Country Name
+                <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+              </th>
+          <th (click)="sort('currency')">Currency
+              <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th (click)="sort('capital')">Capital City
+              <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th (click)="sort('timezone')">Time Zone
+              <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+          </th>
+          <th>Flag</th>
+        </thead>
+      <tbody>
+          <tr *ngFor="let countries of _countryList | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: pgesize, currentPage: p };let i=index;">
+              <td>{{i+1}}</td>
+              <td>{{countries.name}}</td>
+              <td> {{countries.currencies[0].code}} ( {{countries.currencies[0].symbol}} )</td>
+              <td> {{countries.capital}}</td>
+              <td> {{countries.timezones[0]}} </td>
+              <td> <img src="{{countries.flag}}" alt="" width="100px"></td>
+            </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </table>
+  </div>
+
