@@ -11,6 +11,7 @@ import { NgForm } from '@angular/forms';
 export class PricebymarketComponent implements OnInit {
 
   constructor(private mandiservice:mandiprice){}
+  public searchString: string;
 _itemlist:any[];
 _allItem:any[];
 _itemResult:any[];

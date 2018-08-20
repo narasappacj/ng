@@ -22,6 +22,11 @@ import { TwoWayBindingTestComponent } from './two-way-binding-test/two-way-bindi
 import { TimeZoneComponent } from './time-zone/time-zone.component';
 import { Timezoneinfo } from './time-zone/TimeZoneClass';
 import {DataTableModule} from "angular-6-datatable";
+import { FilterPipe } from './pipes/filterpipe';
+import { AirPollotionComponent } from './air-pollotion/air-pollotion.component';
+import { air_quality_service } from './air-pollotion/AirQuality_services';
+import { AirQualityComponent } from './air-quality/air-quality.component';
+
 
 const appRoutes: Routes = [
   { path: 'first', component:TestComponentComponent },
@@ -33,6 +38,8 @@ const appRoutes: Routes = [
   { path: 'price',      component:PricebymarketComponent },
   { path: 'twoway',      component:TwoWayBindingTestComponent },
   { path: 'timezone',      component:TimeZoneComponent },
+  { path: 'air',      component:AirPollotionComponent },
+  { path: 'AirQuality',      component:AirQualityComponent },
   /* {
     path: 'heroes',
     component: TestComponentComponent,
@@ -56,7 +63,10 @@ const appRoutes: Routes = [
     UniquePipe,
     PricebymarketComponent,
     TwoWayBindingTestComponent,
-    TimeZoneComponent
+    TimeZoneComponent,
+    FilterPipe,
+    AirPollotionComponent,
+    AirQualityComponent
   ],
   imports: [
     FormsModule,
@@ -64,12 +74,15 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     HttpModule,  
     JsonpModule,
-    Ng2SearchPipeModule, //including into imports
+    Ng2SearchPipeModule, //including ino imports
     Ng2OrderModule,
     NgxPaginationModule,
     DataTableModule
+    
+
   ],
-  providers: [Test,CountrList,StateDist,mandiprice,Timezoneinfo],
+  exports:[FilterPipe],
+  providers: [Test,CountrList,StateDist,mandiprice,Timezoneinfo,air_quality_service],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

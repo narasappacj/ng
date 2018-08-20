@@ -9,6 +9,7 @@
      
       <option  *ngFor="let c of _itemlist">{{c}}</option>
     </select>
+   
   </div>
   
   <div class="col-md-4">
@@ -17,11 +18,18 @@
   </div>
    
 </div>
-
+<div class="row">
+<div class="form-group col-md-4">
+  <div class="input-group">
+      <div class="input-group-addon"><i class="glyphicon glyphicon-search"></i></div>
+      <input type="text" class="form-control" name="searchString" placeholder="Type to search..." [(ngModel)]="searchString">
+  </div>
+</div>
+</div>
 
 <div class="row">
   <div class="col-md-10">
-    <table class="table table-bordered table-responsive"   [mfData]="_itemResult" #mf="mfDataTable" [mfRowsOnPage]="10">
+    <table class="table table-bordered table-responsive"   [mfData]="_itemResult" #mf="mfDataTable" >
       <thead>
         <tr>
           <th>Sl No</th>
@@ -51,7 +59,7 @@
       </thead>
       <tbody>
 
-        <tr  *ngFor="let item of mf.data;let i=index">
+        <tr  *ngFor="let item of mf.data | filter : 'state' : searchString;let i=index">
           <td>{{(i+1)}}</td>
           <td>{{item.state}}</td>
           <td>{{item.district}}</td>

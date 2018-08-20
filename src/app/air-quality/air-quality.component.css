@@ -1,0 +1,30 @@
+.Good{
+    background-color: green;
+}
+.Satisfactory{
+    background-color:#bbcf4c;
+}
+.Moderately_polluted{
+    background-color:#FFCF00;
+}
+.Poor{
+    background-color: #FF9A00;
+}
+.Very_Poor{
+    background-color:red;
+}
+.Severe{
+    background-color:brown;
+}
+
+.dot {
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 17px;
+  }
+
+  .center {
+    text-align: center;
+  }

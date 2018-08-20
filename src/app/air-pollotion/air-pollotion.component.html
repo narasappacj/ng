@@ -1,0 +1,77 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Real time Air Quality Index </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#divCities">From Various Locations</a></li>
+      <li><a href="#">Pollution Chart</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+<br/>
+
+<div id="divCities">
+    <div class="row">
+        <div class="col-md-4">
+          <span>Select State</span>
+          <select name="drpStates" id="drpStates" class="form-control" (change)="onStateChange($event.target.value)">
+            <option *ngFor="let s of _statelist">{{s}}</option>
+          </select>
+        </div>
+        <div class="col-md-4">
+            <span>Select City</span>
+            <select name="drpcities" id="drpcities" class="form-control" (change)="onCityChange($event.target.value)">
+                <option *ngFor="let c of _citylist">{{c}}</option>
+              </select>
+          </div>
+          <div class="col-md-4">
+              <span>Select Pollutant Item</span>
+              <select name="drppollutant" id="drppollutant" class="form-control" (change)="onPollutantChange($event.target.value)">
+                  <option *ngFor="let p of _pollutantlist">{{p}}</option>
+                </select>
+            </div>
+    </div>
+    <br>
+  <div class="row top-buffer">
+    <div class="col-md-12">
+      <table class="table table-bordered table-responsive table-stripped">
+        <thead >
+          <tr class="success">
+            <th>Sl No</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Station</th>
+            <th>Pollutant</th>
+            <th>Min Pollutant</th>
+            <th>Max Pollutant</th>
+            <th>Avg Pollutant</th>
+            <th>UOM Pollutant</th>
+            <th>Updated Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of _airQuality;let p=index;">
+            <td>{{(p+1)}}</td>
+            <td>{{i.city}}</td>
+            <td>{{i.state}}</td>
+            <td>{{i.station}}</td>
+            <td>{{i.pollutant_id}}</td>
+            <td>{{i.pollutant_min}}</td>
+            <td>{{i.pollutant_max}}</td>
+            <td>{{i.pollutant_avg}}</td>
+            <td>{{i.pollutant_unit}}</td>
+            <td>{{i.last_update|date}}</td>
+           
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+</div>

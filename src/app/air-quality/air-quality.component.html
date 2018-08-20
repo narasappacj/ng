@@ -1,0 +1,83 @@
+
+<div id="divCities">
+  
+    <div class="row top-buffer">
+        <!-- <div class="col-md-4">
+          <span>Select State</span>
+          <select name="drpStates" id="drpStates" class="form-control" (change)="onStateChange($event.target.value)">
+            <option *ngFor="let s of _statelist">{{s}}</option>
+          </select>
+        </div> -->
+        <div class="col-md-3">
+            <span>
+             
+             <strong>Select City</strong> </span>
+            <select name="drpcities" id="drpcities" class="form-control" (change)="onCityChange($event.target.value)">
+                <option *ngFor="let c of _citylist">{{c}}</option>
+              </select>
+          </div>
+          <div class="col-md-9">
+              <span class="dot Good"></span> <span>Good</span>
+              <span class="dot Satisfactory"></span> <span>Satisfactory</span>
+              <span class="dot Moderately_polluted"></span> <span>Moderately polluted</span>
+              <span class="dot Poor"></span> <span>Poor</span>
+              <span class="dot Very_Poor"></span><span>Very Poor</span>
+              <span class="dot Severe"></span><span>Severe</span>
+          </div>
+          <!-- <div class="col-md-4">
+              <span>Select Pollutant Item</span>
+              <select name="drppollutant" id="drppollutant" class="form-control" (change)="onPollutantChange($event.target.value)">
+                  <option *ngFor="let p of _pollutantlist">{{p}}</option>
+                </select>
+            </div> -->
+    </div>
+    <br>
+   
+  <div class="row top-buffer">
+    <div class="col-md-10">
+      <table class="table table-bordered table-responsive table-striped" [mfData]="_qualitydata" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead >
+          <tr class="success">
+           
+            <th>City</th>
+            <!-- <th>State</th> -->
+            <th>Station</th>
+            <th>Pollutant</th>
+            <th>Min Pollutant</th>
+            <th>Max Pollutant</th>
+            <th>Avg Pollutant</th>
+            <th>UOM Pollutant</th>
+            <th>Updated Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of mf.data;let p=index;">
+            
+            <td>{{i.city}}</td>
+            <!-- <td>{{i.state}}</td> -->
+            <td>{{i.station}}</td>
+            <td>{{i.pollutant_id}}</td>
+            <td>{{i.pollutant_min}}</td>
+            <td>{{i.pollutant_max}}</td>
+            <td>{{i.pollutant_avg}}</td>
+            <td>{{i.pollutant_unit}}</td>
+            <td>{{i.last_update|date}}</td>
+            <td [class.Good]="i.Polloution_state=='Good'" [class.Satisfactory]="i.Polloution_state=='Satisfactory'" [class.Moderately_polluted]="i.Polloution_state=='Moderately_polluted'" [class.Poor]="i.Polloution_state=='Poor'" [class.Very_Poor]="i.Polloution_state=='Very_Poor'" [class.Severe]="i.Polloution_state=='Severe'"></td>
+          </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="9" align="right">
+                    <mfBootstrapPaginator></mfBootstrapPaginator>
+                </td>
+            </tr>
+         </tfoot>
+      </table>
+    </div>
+  </div>
+
+
+
+
+</div>
