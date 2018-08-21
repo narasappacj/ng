@@ -9,9 +9,9 @@
        </select>
   </div>
   <div class="col-md-6 pull-right">
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <input class="form-control" type="text" name="search" [(ngModel)]="filter" placeholder="Search In table">    
-    </nav>
+    </nav> -->
     
     </div>
     
@@ -35,7 +35,8 @@
           <th>Flag</th>
         </thead>
       <tbody>
-          <tr *ngFor="let countries of _countryList | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: pgesize, currentPage: p };let i=index;">
+          <!-- <tr *ngFor="let countries of _countryList | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage: pgesize, currentPage: p };let i=index;"> -->
+                <tr *ngFor="let countries of _countryList | orderBy: key : reverse  | paginate: { itemsPerPage: pgesize, currentPage: p };let i=index;">
               <td>{{i+1}}</td>
               <td>{{countries.name}}</td>
               <td> {{countries.currencies[0].code}} ( {{countries.currencies[0].symbol}} )</td>
@@ -47,4 +48,3 @@
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
       </table>
   </div>
-
