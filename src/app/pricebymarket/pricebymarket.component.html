@@ -5,8 +5,8 @@
     <label for="">Select Commudity</label>
   </div>
   <div class="col-md-4">
-    <select name="drpcommudity" id="drpcommudity" class="form-control"  [(ngModel)]="drpcommudity" #ctrl="ngModel" required >
-     
+    <!-- <select name="drpcommudity" id="drpcommudity" class="form-control"  [(ngModel)]="drpcommudity" #ctrl="ngModel" required > -->
+        <select name="drpcommudity" id="drpcommudity" class="form-control"  #ctrl="ngModel" required >
       <option  *ngFor="let c of _itemlist">{{c}}</option>
     </select>
    
