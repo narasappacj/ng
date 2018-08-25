@@ -48,11 +48,11 @@
             <th>Avg Pollutant</th>
             <th>UOM Pollutant</th>
             <th>Updated Date</th>
-            <th>Status</th>
+          
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let i of mf.data;let p=index;">
+          <tr *ngFor="let i of mf.data;let p=index;" [class.Good]="i.Polloution_state=='Good'" [class.Satisfactory]="i.Polloution_state=='Satisfactory'" [class.Moderately_polluted]="i.Polloution_state=='Moderately_polluted'" [class.Poor]="i.Polloution_state=='Poor'" [class.Very_Poor]="i.Polloution_state=='Very_Poor'" [class.Severe]="i.Polloution_state=='Severe'">
             
             <td>{{i.city}}</td>
             <!-- <td>{{i.state}}</td> -->
@@ -63,7 +63,7 @@
             <td>{{i.pollutant_avg}}</td>
             <td>{{i.pollutant_unit}}</td>
             <td>{{i.last_update|date}}</td>
-            <td [class.Good]="i.Polloution_state=='Good'" [class.Satisfactory]="i.Polloution_state=='Satisfactory'" [class.Moderately_polluted]="i.Polloution_state=='Moderately_polluted'" [class.Poor]="i.Polloution_state=='Poor'" [class.Very_Poor]="i.Polloution_state=='Very_Poor'" [class.Severe]="i.Polloution_state=='Severe'"></td>
+           
           </tr>
         </tbody>
         <tfoot>
